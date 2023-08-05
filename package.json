@@ -1,10 +1,11 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "description": "",
+  "description": "stordi server",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "cross-env APP_ENV=local nodemon ./src/server.ts",
+    "build": "rimraf ./build && tsc && cp -R src/lib/mail build/src/lib && cp -R docs build/"
   },
   "keywords": [],
   "author": "",
@@ -23,6 +24,7 @@
     "express-async-errors": "^3.1.1",
     "express-session": "^1.17.3",
     "helmet": "^7.0.0",
+    "http-status-codes": "^2.2.0",
     "jsonwebtoken": "^9.0.1",
     "lodash": "^4.17.21",
     "mongoose": "^7.4.2",
@@ -31,6 +33,7 @@
     "passport-google-oauth20": "^2.0.0",
     "redis": "^4.6.7",
     "reflect-metadata": "^0.1.13",
+    "stoppable": "^1.1.0",
     "winston": "^3.10.0",
     "winston-console-format": "^1.0.8"
   },
@@ -47,6 +50,7 @@
     "@types/node": "^20.4.8",
     "@types/passport": "^1.0.12",
     "@types/passport-google-oauth20": "^2.0.11",
+    "@types/stoppable": "^1.1.1",
     "nodemon": "^3.0.1",
     "ts-node": "^10.9.1",
     "typescript": "^5.1.6"
